@@ -1,0 +1,19 @@
+{
+    "Login": "登入",
+    "Password": "密碼",
+    "Remember Me": "記住我",
+    "E-Mail Address": "電子郵件",
+    "Forgot Your Password?": "忘記密碼？",
+    "Verify Your Email Address": "驗證您的電子郵件地址",
+    "A fresh verification link has been sent to your email address.": "新的驗證連結已發送到您的電子郵件地址",
+    "Before proceeding, please check your email for a verification link.": "在繼續之前，請檢查您的電子郵件以獲取驗證鏈接。",
+    "If you did not receive the email": "如果您沒有收到該電子郵件",
+    "click here to request another": "點擊這裡申請另一個",
+    "Reset Password": "重設密碼",
+    "Send Password Reset Link": "寄送重設密碼連結",
+    "Confirm Password": "確認密碼",
+    "Toggle navigation": "縮放導覽工具",
+    "Register": "註冊",
+    "Name": "姓名",
+    "Logout": "登出"
+}
