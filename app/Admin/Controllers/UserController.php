@@ -130,11 +130,11 @@ class UserController extends Controller
 
         $form->text('name', 'Name');
         $form->email('email', 'Email');
-        $form->datetime('email_verified_at', 'Email verified at')->default(date('Y-m-d H:i:s'));
-        $form->password('password', 'Password');
+        // $form->datetime('email_verified_at', 'Email verified at')->default(date('Y-m-d H:i:s'));
+        // $form->password('password', 'Password');
         $form->text('address', 'Address');
         $form->text('tel', 'Tel');
-        $form->text('remember_token', 'Remember token');
+        // $form->text('remember_token', 'Remember token');
 
         return $form;
     }
