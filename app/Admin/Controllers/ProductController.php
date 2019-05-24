@@ -2,8 +2,8 @@
 
 namespace App\Admin\Controllers;
 
-use App\Product;
 use App\Http\Controllers\Controller;
+use App\Product;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -23,8 +23,8 @@ class ProductController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->header('Index')
-            ->description('description')
+            ->header('商品管理')
+            ->description('管理所有賣場商品')
             ->body($this->grid());
     }
 
@@ -81,14 +81,14 @@ class ProductController extends Controller
     {
         $grid = new Grid(new Product);
 
-        $grid->id('Id');
-        $grid->title('Title');
-        $grid->description('Description');
-        $grid->image('Image');
-        $grid->on_sale('On sale');
-        $grid->price('Price');
-        $grid->created_at('Created at');
-        $grid->updated_at('Updated at');
+        $grid->id('編號');
+        $grid->title('商品名稱');
+        $grid->description('商名描述');
+        $grid->image('商品圖');
+        $grid->on_sale('是否上架');
+        $grid->price('價錢');
+        $grid->created_at('建立時間');
+        $grid->updated_at('更新時間');
 
         return $grid;
     }
