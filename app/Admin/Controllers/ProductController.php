@@ -67,8 +67,8 @@ class ProductController extends Controller
     public function create(Content $content)
     {
         return $content
-            ->header('Create')
-            ->description('description')
+            ->header('新增商品')
+            ->description('請於此頁面建立新商品')
             ->body($this->form());
     }
 
@@ -124,11 +124,11 @@ class ProductController extends Controller
     {
         $form = new Form(new Product);
 
-        $form->text('title', 'Title');
-        $form->textarea('description', 'Description');
-        $form->image('image', 'Image');
-        $form->switch('on_sale', 'On sale')->default(1);
-        $form->number('price', 'Price');
+        $form->text('title', '商品名稱');
+        $form->textarea('description', '商名描述');
+        $form->image('image', '商品圖');
+        $form->switch('on_sale', '是否上架')->default(1);
+        $form->number('price', '價錢');
 
         return $form;
     }
