@@ -124,11 +124,15 @@ class ProductController extends Controller
     {
         $form = new Form(new Product);
 
-        $form->text('title', '商品名稱');
-        $form->textarea('description', '商名描述');
-        $form->image('image', '商品圖');
-        $form->switch('on_sale', '是否上架')->default(1);
-        $form->number('price', '價錢');
+        $form->text('title', '商品名稱')->rules('required');
+        $form->textarea('description', '商名描述')->rules('required');
+        $form->image('image', '商品圖')->rules('required');
+        $states = [
+            'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+            'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
+        ];
+        $form->switch('on_sale', '是否上架')->states($states)->default(1);
+        $form->number('price', '價錢')->default(0)->rules('required|integer|min:0');
 
         return $form;
     }
