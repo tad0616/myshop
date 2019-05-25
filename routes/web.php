@@ -12,8 +12,11 @@
  */
 
 Route::get('/', function () {
-    return view('welcome', ['name' => 'tad', 'say' => '嗨！']);
+    return view('product.index');
 });
+Route::get('/product/index', function () {
+    return view('product.index');
+})->name('product.index');
 
 Auth::routes();
 
