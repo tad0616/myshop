@@ -4,9 +4,13 @@
     <div class="card-deck">
     @forelse($products as $product)
         <div class="card mb-4">
+            <a href="product/{{ $product->id }}">
             <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->title }}">
+            </a>
             <div class="card-body">
-                <h5 class="card-title">{{ $product->title }}</h5>
+                <h5 class="card-title">
+                    <a href="product/{{ $product->id }}">{{ $product->title }}</a>
+                </h5>
             </div>
             <div class="card-footer text-center">
                 ${{ $product->price }}
