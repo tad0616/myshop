@@ -11,12 +11,8 @@
 |
  */
 
-Route::get('/', function () {
-    return view('product.index');
-});
-Route::get('/product/index', function () {
-    return view('product.index');
-})->name('product.index');
+Route::get('/', 'ProductController@index')->name('index');
+Route::get('/product', 'ProductController@index')->name('product.index');
 
 Auth::routes();
 
