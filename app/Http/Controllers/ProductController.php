@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Exceptions\InvalidRequestException;
+use App\Exceptions\CustomException;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         if (!$product->on_sale) {
-            throw new InvalidRequestException('商品未上架');
+            throw new CustomException('商品未上架');
         }
         return view('product.show', compact('product'));
     }
