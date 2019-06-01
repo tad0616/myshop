@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
-use Illuminate\Http\Request;
 use App\Http\Requests\CartRequest;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -36,12 +36,7 @@ class CartController extends Controller
      */
     public function store(CartRequest $request)
     {
-        
-        Cart::create([
-            'user_id'    => $request->user()->id,
-            'product_id' => $request->product_id,
-            'amount'     => $request->amount,
-        ]);
+        Cart::create($request->all());
         return [];
     }
 
