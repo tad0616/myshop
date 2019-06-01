@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -34,7 +35,12 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart             = new Cart;
+        $cart->user_id    = $request->user()->id;
+        $cart->product_id = $request->product_id;
+        $cart->amount     = $request->amount;
+        $cart->save();
+        return [];
     }
 
     /**
