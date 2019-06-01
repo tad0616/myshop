@@ -14,7 +14,7 @@
             </div>
             <div class="card-footer text-center">
                 ${{ $product->price }}
-                <a href="#" class="btn btn-primary">加入購物車</a>
+                <button class="btn btn-primary btn-add-to-cart" data-id="{{ $product->id }}">加入購物車</button>
             </div>
         </div>
         @if($loop->iteration % 2 == 0)
@@ -37,4 +37,14 @@
         </div>
     @endforelse
     </div>
+    <input type="hidden" name="amount" value="1">
+@endsection
+
+
+@section('scriptsAfterJs')
+    <script>
+        $(document).ready(function () {
+            @include('product.add2cart')
+        });
+    </script>
 @endsection
