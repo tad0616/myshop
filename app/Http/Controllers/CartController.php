@@ -36,7 +36,15 @@ class CartController extends Controller
      */
     public function store(CartRequest $request)
     {
-        Cart::create($request->all());
+        // 從資料庫中查詢該商品是否已經在購物車中，如果存在則直接疊加商品數量
+        if ($cart = $request->user()->carts()->where('product_id', $request->product_id)->first()) {
+            $cart->update([
+                'amount' => $cart->amount + $request->amount,
+            ]);
+        } else {
+            // 否則創建一個新的購物車記錄
+            Cart::create($request->all());
+        }
         return [];
     }
 
