@@ -26,6 +26,9 @@
                         </li>
                     @endif
                 @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cart.index') }}">我的購物車</a>
+                    </li>
                     @section('my_menu')
                     @show
                     <li class="nav-item dropdown">

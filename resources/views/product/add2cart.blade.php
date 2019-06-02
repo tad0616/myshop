@@ -5,7 +5,10 @@ $('.btn-add-to-cart').click(function () {
         amount: $('input[name=amount]').val(),
     })
     .then(function () { // 請求成功時執行：
-        swal('加入購物車成功', '', 'success');
+        swal('加入購物車成功', '', 'success')
+        .then(function() {
+          location.href = '{{ route('cart.index') }}';
+        });
     }, function (error) { // 請求失敗時執行：
 
         console.log('error.response.status = ' + error.response.status);
