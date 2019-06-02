@@ -25,7 +25,9 @@
                 <td class="text-right">{{ $cart->product->price }}</td>
                 <td class="text-center">{{ $cart->amount }}</td>
                 <td class="text-right">{{ $cart->product->price * $cart->amount }}</td>
-                <td nowrap><a href="#" class="btn btn-danger btn-sm">移除</a></td>
+                <td nowrap>
+                    <a href="#" class="btn btn-danger btn-sm btn-del-from-cart" data-id="{{ $cart->product_id }}">移除</a>
+                </td>
             </tr>
         @empty
 
@@ -41,7 +43,24 @@
 @section('scriptsAfterJs')
     <script>
         $(document).ready(function () {
-
+            $('.btn-del-from-cart').click(function () {
+                var product_id=$(this).data('id');
+                swal({
+                    title: "確認要將該商品移除？",
+                    icon: "warning",
+                    buttons: ['取消', '確定'],
+                    dangerMode: true,
+                }).then(function(willDelete) {
+                    // 用戶點擊 確定 按鈕，willDelete 的值就會是 true，否則為 false
+                    if (!willDelete) {
+                        return;
+                    }
+                    axios.delete('/cart/' + product_id)
+                    .then(function () {
+                        location.reload();
+                    })
+                });
+            });
         });
     </script>
 @endsection
