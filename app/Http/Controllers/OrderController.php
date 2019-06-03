@@ -15,9 +15,15 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $orders = Order::query()
+            ->with(['items.product'])
+            ->where('user_id', $request->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
+        return view('order.index', compact('orders'));
     }
 
     /**
@@ -70,8 +76,7 @@ class OrderController extends Controller
             $user->carts()->delete();
         });
 
-        return redirect()->route('index');
-
+        return redirect()->route('order.index');
     }
 
     /**

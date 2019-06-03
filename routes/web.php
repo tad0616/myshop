@@ -21,6 +21,7 @@ Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 
 Route::post('/order/store', 'OrderController@store')->name('order.store');
+Route::get('/order', 'OrderController@index')->name('order.index');
 
 Auth::routes();
 
