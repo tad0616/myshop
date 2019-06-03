@@ -15,8 +15,8 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        $carts = $request->user()->carts()->get();
-        return view('cart.index', compact('carts'));
+        $user = $request->user();
+        return view('cart.index', compact('user'));
     }
 
     /**
